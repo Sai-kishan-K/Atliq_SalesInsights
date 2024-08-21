@@ -3,7 +3,7 @@
 
 ## Problem Statement
 
-This dashboard helps an organization called AtliQ understand their sales insights better. It helps the company know about their customers and vendors profit and losses through different region, they get to know their improvements over time in each sector of the products, & thus they can get know where the organization needs improvement. It also lets them know the Top 5 customers over revenue & product, thus since by using this dashboard they have identified the insights, they can further work on factors responsible for the decrease in sales.
+This dashboard helps an organization called AtliQ understand their sales insights on hradware goods better. It helps the company know about their customers and vendors profit and losses through different region, they get to know their improvements over time in each sector of the products, & thus they can get know where the organization needs improvement. It also lets them know the Top 5 customers over revenue & product, thus since by using this dashboard they have identified the insights, they can further work on factors responsible for the decrease in sales.
 
 
 
