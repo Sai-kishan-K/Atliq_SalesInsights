@@ -1,4 +1,4 @@
-# Atliq Sales Insights-Dashboard
+# Sales Insights-Dashboard
 
 
 ## Problem Statement
