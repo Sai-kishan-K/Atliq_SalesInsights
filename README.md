@@ -1,54 +1,63 @@
-# Sales Insights-Dashboard
+# Sales Insights Dashboard
 
+## 📌 Project Overview
+AtliQ Hardware, a leading provider of computer hardware and peripherals, faced challenges in tracking sales performance across multiple regions in a rapidly changing market. 
 
-## Problem Statement
+This project delivers a **Power BI Business Intelligence solution** designed to provide real-time visibility into sales trends, customer performance, and regional profitability. By transforming raw transactional data into visual stories, this dashboard enables management to identify underperforming sectors and optimize their sales strategy.
 
-This dashboard helps an organization called AtliQ understand their sales insights on hradware goods better. It helps the company know about their customers and vendors profit and losses through different region, they get to know their improvements over time in each sector of the products, & thus they can get know where the organization needs improvement. It also lets them know the Top 5 customers over revenue & product, thus since by using this dashboard they have identified the insights, they can further work on factors responsible for the decrease in sales.
+---
 
+## 🚀 Key Business Questions Answered
+* **Revenue Analysis:** What is the total revenue and sales quantity across all regions?
+* **Market Performance:** Which markets are driving growth and which need strategic intervention?
+* **Customer Insights:** Who are our Top 5 customers by revenue and product volume?
+* **Temporal Trends:** How is the revenue trending month-over-month and year-over-year?
 
+---
 
-### Steps followed 
+## 🛠️ Technical Workflow (ETL & Modeling)
 
-- Step 1 : Load data into Power BI Desktop, dataset is a csv file.
-- Step 2 : Open power query editor & in view tab under Data preview section, check "column distribution", "column quality" & "column profile" options.
-- Step 3 : Also since by default, profile will be opened only for 1000 rows so you need to select "column profiling based on entire dataset".
-- Step 4 : It was observed that in none of the columns errors & empty values were present.But there will be some values sales amount in USD 
-- Step 5 : So the amounts table is completely converted to INR using the formula 'if currency = 'USD' amount = amount*83'
-- Step 6 : In the report view, under the view tab, theme was selected.
-- Step 7 : Since the data contains various tables, we need insights based on years as well so we extracted only years from 'cy_date' and stored it in seperate column
-- Step 8 : Visual filters  were added for better insights on Total revenue and Sales Quantity.
+### 1. Data Cleaning & Transformation (Power Query)
+Instead of a simple import, I performed a rigorous ETL process to ensure data "truth":
+* **Currency Standardization:** Discovered inconsistent currency formats (INR and USD). I implemented a custom transformation column using DAX/M-Language logic: 
+    > `if [currency] == "USD" then [sales_amount] * 83 else [sales_amount]`
+* **Data Quality Assurance:** Performed "Column Profiling" across the **entire dataset** to ensure no null values or outliers were skewing the average calculations.
+* **Data Filtering:** Removed "Null" and "Blank" market entries from the visual-level filters to ensure clean regional reporting.
 
-           Using visual level filter from the filters pane, basic filtering was used & null values were unselected for consideration into average calculation.
-           
-           Although, by default, while calculating average, blank values are ignored.
-- Step 10 : A bar chart was also added to the report design area representing the Revenue by each market sectors and amount of sales for the respective markets. 
+### 2. Data Modeling
+* **Time Intelligence:** Extracted `Year` and `Month` from the `cy_date` field to create a relational schema that supports drill-down analysis.
+* **Calculated Measures:** Developed DAX measures for Total Revenue and Total Sales Quantity to allow for dynamic filtering.
 
+---
 
+## 📊 Dashboard Highlights
+* **Total Revenue:** ₹ 984.81 Million
+* **Total Sales Volume:** 2 Million Units
+* **Top 5 Customers:** ElectricalSara Stores, Electricalslytical, Excel Store, Premium Stores, Nixon.
+* **Interactive Visuals:** Bar charts for Revenue by Market and Revenue Trend lines for seasonal analysis.
 
-# Snapshot of Dashboard (Power BI Service)
+---
 
+## 📸 Screenshots
+
+### Power BI Service Dashboard
 ![Dashboard_snap](https://github.com/user-attachments/assets/65e13e6d-941c-4b6c-a44f-d8588f157910)
- 
- # Report Snapshot (Power BI DESKTOP)
 
+### Power BI Desktop Report View
 ![Atliq_dashboard](https://github.com/user-attachments/assets/fd6ad3ec-8e3b-42b0-b169-95cf54e38790)
 
-# Insights
+---
 
-A single page report was created on Power BI Desktop
+## 💡 Key Insights & Recommendations
+* **Market Focus:** The dashboard identified specific regions where sales quantity is high but revenue is lower than expected, suggesting a need to review pricing strategies.
+* **Retention:** Since the Top 5 customers contribute a significant portion of the revenue, AtliQ should implement loyalty programs or bulk-purchase discounts for these key accounts.
+* **Growth Opportunity:** By analyzing the "Revenue Trend," management can now predict seasonal peaks and align inventory levels accordingly.
 
-Following inferences can be drawn from the dashboard;
+---
 
-
-   Total Revenue  = 984.81 Million
-
-   Total Amount of Sales = 2 Million 
-
-   Top 5 Customers = ElectricalSara Stores, Electricalslytical, Excel Store, Premium Stores, Nixon
-
-   Revenue Trend Over the years which can also been seen for each month for each year.
-
-   
-
-
-           
+## 🧪 Tech Stack Used
+* **Tool:** Power BI Desktop
+* **Service:** Power BI Service (Cloud)
+* **Data Source:** CSV / Excel
+* **Transformation:** Power Query (M Language)
+* **Calculations:** DAX (Data Analysis Expressions)
